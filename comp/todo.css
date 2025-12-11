@@ -40,7 +40,8 @@
 .todo-form input[type='button'] {
   color: #fff;
 }
-s .todo-task {
+
+.todo-task {
   min-height: 300px;
   border: 1px solid #fff;
   color: #fff;
