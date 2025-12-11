@@ -1,0 +1,47 @@
+@import 'tailwindcss';
+
+.todo-main {
+  border: 1px solid #e9e3e3;
+  width: 60%;
+  height: 100vh;
+  margin: 0 auto;
+}
+.todo-main .top-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10vh auto 0;
+}
+.todo-main .top-title img {
+  height: 50px;
+  width: 50px;
+}
+
+.todo-form {
+  margin: 20px 0;
+}
+.todo-form form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  /* border: 1px solid #fff; */
+}
+.todo-form input {
+  padding: 9px 20px;
+  border-radius: 5px;
+  background: #2f2f2f;
+  outline: 0;
+  color: #fff;
+}
+.todo-form input[type='text'] {
+  background: #2f2f2f;
+}
+.todo-form input[type='button'] {
+  color: #fff;
+}
+.todo-task {
+  min-height: 300px;
+  border: 1px solid #fff;
+  color: #fff;
+}
