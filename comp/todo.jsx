@@ -3,19 +3,22 @@ import './todo.css';
 import icon from './../images/check-mark.png';
 
 const Todo = () => {
-  const [todo, setTodos] = useState('');
-  const [input, setInput] = useState('');
-  // const inputData = () => {
-  //   setTodos({ todo });
-  // };
+  const [todos, setTodos] = useState([]);
 
   function formAction(event) {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
     const formValue = Object.fromEntries(formData.entries());
-    console.log('Form data:', formValue.query);
-    setInput(formValue.query);
+    const newTodo = formValue.query;
+    if (!newTodo.trim()) return;
+    console.log('Form data:', newTodo);
+    setTodos((prev) => [...prev, newTodo]);
+    event.currentTarget.reset();
+  }
+
+  function removeTodo(index) {
+    setTodos((prev) => prev.filter((_, i) => i !== index));
   }
   return (
     <div className='todo-main'>
@@ -32,10 +35,17 @@ const Todo = () => {
             // onChange={() => inputData()}
             // value={todo}
           />
-          <input type='button' value='+' />
+          <input type='submit' value='+' />
         </form>
       </div>
-      <div className='todo-task'>{input}</div>
+      <div className='todo-task '>
+        {todos.map((item, index) => (
+          <div key={index} className='todo-item flex'>
+            <p key={index}>{item}</p>
+            <button onClick={() => removeTodo(index)}>x</button>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
