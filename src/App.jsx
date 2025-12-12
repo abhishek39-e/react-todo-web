@@ -7,5 +7,4 @@ function App() {
   );
 }
 
-jh;
 export default App;
